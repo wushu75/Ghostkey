@@ -78,11 +78,6 @@ leaves the vault at all.
 
 > No build step. No dependencies. What you load is exactly what runs.
 
-### Chrome Web Store
-
-Once published, install from the Web Store listing (link TBD). See
-[PACKAGING.md](PACKAGING.md) to build the submission zip yourself.
-
 ## Usage
 
 - **Popup** (toolbar icon): unlock, glance at spend and keys, lock, or open the full panel.
