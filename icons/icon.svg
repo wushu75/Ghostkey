@@ -1,0 +1,52 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GhostKey">
+  <defs>
+    <linearGradient id="ghost" x1="24" y1="14" x2="104" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67E8F9"/>
+      <stop offset="0.55" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+  </defs>
+
+  <!-- rounded app tile -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#0B1120"/>
+  <rect x="4.5" y="4.5" width="119" height="119" rx="27.5" fill="none" stroke="#22304F"/>
+
+  <!-- ambient halo -->
+  <circle cx="64" cy="56" r="44" fill="url(#halo)"/>
+
+  <!-- ghost body: dome head + wavy hem -->
+  <path d="M64 22
+           C44.7 22 32 36.4 32 55.5
+           V96.5
+           c0 3.6 4.2 5.6 7 3.2
+           l6.4-5.4 c1.9-1.6 4.6-1.6 6.5 0
+           l5.6 4.7 c1.9 1.6 4.6 1.6 6.5 0
+           l5.6-4.7 c1.9-1.6 4.6-1.6 6.5 0
+           l6.4 5.4 c2.8 2.4 7 .4 7-3.2
+           V55.5 C96 36.4 83.3 22 64 22 Z"
+        fill="url(#ghost)"/>
+
+  <!-- inner shading for depth -->
+  <path d="M64 22 C44.7 22 32 36.4 32 55.5 V72 c8-6 20-9 32-9 s24 3 32 9 V55.5 C96 36.4 83.3 22 64 22 Z"
+        fill="#0B1120" opacity="0.10"/>
+
+  <!-- eyes -->
+  <circle cx="52" cy="52" r="5.4" fill="#0B1120"/>
+  <circle cx="76" cy="52" r="5.4" fill="#0B1120"/>
+  <circle cx="53.6" cy="50.4" r="1.7" fill="#67E8F9"/>
+  <circle cx="77.6" cy="50.4" r="1.7" fill="#67E8F9"/>
+
+  <!-- keyhole on the ghost's chest: the "key" motif -->
+  <g filter="url(#soft)" opacity="0.35">
+    <circle cx="64" cy="74" r="8" fill="#0B1120"/>
+  </g>
+  <circle cx="64" cy="72.5" r="6.2" fill="#0B1120"/>
+  <path d="M61.4 76 h5.2 l1.5 9 a4.1 4.1 0 0 1 -8.2 0 Z" fill="#0B1120"/>
+</svg>
