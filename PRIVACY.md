@@ -48,5 +48,5 @@ Uninstalling the extension removes its local storage.
 
 ## Contact
 
-Questions or issues: https://github.com/ghostkey/ghostkey/issues _(replace with
+Questions or issues: https://github.com/wushu75/Ghostkey/issues _(replace with
 your real repository)._

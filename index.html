@@ -230,6 +230,12 @@
   .prov{font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--dim); border:1px solid var(--border); border-radius:9px; padding:7px 12px; background:var(--surface)}
   .prov.local{color:var(--violet); border-color:color-mix(in srgb,var(--violet) 35%,var(--border))}
 
+  /* store button */
+  .store-btn{gap:9px}
+  .store-btn .cr-ic{flex-shrink:0}
+  .store-btn.soon{position:relative}
+  .store-btn.soon::after{content:"soon"; position:absolute; top:-8px; right:-8px; font-family:"IBM Plex Mono",monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; background:var(--violet); color:#0B1120; padding:1px 6px; border-radius:999px; font-weight:700}
+
   /* faq */
   .faq{margin-top:30px; display:grid; gap:12px; max-width:760px}
   .qa{border:1px solid var(--border); border-radius:14px; background:var(--surface); padding:0 18px; transition:border-color .2s}
@@ -281,7 +287,7 @@
       <a class="link" href="#integrate">Integrate</a>
       <a class="link" href="#faq">FAQ</a>
       <a class="btn ghost" data-repo href="#">GitHub</a>
-      <a class="btn primary" href="#get">Get GhostKey</a>
+      <a class="btn primary" data-store href="#">Add to Chrome</a>
     </div>
   </nav>
 </div>
@@ -294,8 +300,9 @@
       <h1>Your AI keys.<br>One vault.<br><span class="grad">Zero trust required.</span></h1>
       <p class="lede">GhostKey encrypts your AI API keys on your device and hands other apps a short-lived pass — or proxies the request outright. The key itself never leaves the vault.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#get">Get GhostKey
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <a class="btn primary store-btn" data-store href="#">
+          <svg class="cr-ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="currentColor"/><path d="M12 8.6h8.4M8.9 13.7 4.8 6.6M15.1 13.7 10.9 21" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+          Add to Chrome
         </a>
         <a class="btn ghost" data-repo href="#">View source</a>
       </div>
@@ -499,8 +506,11 @@
       <h2>Keep your keys to yourself.</h2>
       <p>Load GhostKey unpacked today, or grab it from the Chrome Web Store when it lands. Open source, MIT, and yours to audit.</p>
       <div class="cta-row">
-        <a class="btn primary" data-repo href="#">Get it on GitHub</a>
-        <a class="btn ghost" data-docs href="#">Read the docs</a>
+        <a class="btn primary store-btn" data-store href="#">
+          <svg class="cr-ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="currentColor"/><path d="M12 8.6h8.4M8.9 13.7 4.8 6.6M15.1 13.7 10.9 21" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+          Add to Chrome
+        </a>
+        <a class="btn ghost" data-repo href="#">View source</a>
       </div>
       <p class="faint mono" style="margin-top:18px; font-size:11.5px">Chrome · Edge · Brave · Arc · Opera — any Chromium browser</p>
     </div>
@@ -522,10 +532,23 @@
 <script>
   // Single source of truth for links — swap this for your real repo before publishing.
   const REPO = 'https://github.com/wushu75/Ghostkey';
+  // Chrome Web Store listing — paste your published URL here once it's live.
+  const STORE_URL = 'https://chromewebstore.google.com/detail/ghostkey/REPLACE_WITH_STORE_ID';
+  const STORE_LIVE = !STORE_URL.includes('REPLACE_WITH_STORE_ID');
   const LINKS = { repo: REPO, docs: REPO + '#readme', issues: REPO + '/issues' };
   document.querySelectorAll('[data-repo]').forEach(a => { a.href = LINKS.repo; a.target = '_blank'; a.rel = 'noopener'; });
   document.querySelectorAll('[data-docs]').forEach(a => { a.href = LINKS.docs; a.target = '_blank'; a.rel = 'noopener'; });
   document.querySelectorAll('[data-issues]').forEach(a => { a.href = LINKS.issues; a.target = '_blank'; a.rel = 'noopener'; });
+  document.querySelectorAll('[data-store]').forEach(a => {
+    if (STORE_LIVE) { a.href = STORE_URL; }
+    else {
+      // Not published yet — send people to the repo's install instructions and note it.
+      a.href = LINKS.repo + '#installation';
+      a.title = 'Chrome Web Store listing coming soon — install from GitHub for now';
+      a.classList.add('soon');
+    }
+    a.target = '_blank'; a.rel = 'noopener';
+  });
 </script>
 </body>
 </html>
