@@ -51,6 +51,22 @@
   ]
 }
 </script>
+
+<!-- Structured data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Where are my API keys stored?", "acceptedAnswer": { "@type": "Answer", "text": "Only on your device, encrypted, in the browser's extension storage. There are no GhostKey servers, accounts, or telemetry." } },
+    { "@type": "Question", "name": "How are the keys protected?", "acceptedAnswer": { "@type": "Answer", "text": "Each key is encrypted with AES-256-GCM. The encryption key is derived from your master passphrase using PBKDF2-HMAC-SHA-256 with 600,000 iterations and exists only in memory while the vault is unlocked." } },
+    { "@type": "Question", "name": "What happens if I forget my passphrase?", "acceptedAnswer": { "@type": "Answer", "text": "It cannot be recovered. Your passphrase is never stored or transmitted, so choose something strong and keep an encrypted backup export somewhere safe." } },
+    { "@type": "Question", "name": "Can any app use my keys?", "acceptedAnswer": { "@type": "Answer", "text": "Only apps you explicitly approve, and only for as long as you allow. By default GhostKey proxies the request so the app never sees the raw key, and you can revoke any grant instantly." } },
+    { "@type": "Question", "name": "Which providers are supported?", "acceptedAnswer": { "@type": "Answer", "text": "OpenAI, Anthropic, Google Gemini, xAI, OpenRouter, Groq, DeepSeek, Mistral, Qwen, Moonshot Kimi, Ollama, and LM Studio, plus any OpenAI-compatible endpoint." } },
+    { "@type": "Question", "name": "Does it cost anything?", "acceptedAnswer": { "@type": "Answer", "text": "No. GhostKey is free and open source under the MIT license. You only pay your AI providers for the tokens you use." } }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -214,6 +230,16 @@
   .prov{font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--dim); border:1px solid var(--border); border-radius:9px; padding:7px 12px; background:var(--surface)}
   .prov.local{color:var(--violet); border-color:color-mix(in srgb,var(--violet) 35%,var(--border))}
 
+  /* faq */
+  .faq{margin-top:30px; display:grid; gap:12px; max-width:760px}
+  .qa{border:1px solid var(--border); border-radius:14px; background:var(--surface); padding:0 18px; transition:border-color .2s}
+  .qa[open]{border-color:color-mix(in srgb,var(--cyan) 35%,var(--border))}
+  .qa summary{cursor:pointer; padding:16px 0; font-family:"Sora",sans-serif; font-weight:600; font-size:15.5px; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary::after{content:"+"; color:var(--cyan); font-size:20px; font-weight:400; transition:transform .2s}
+  .qa[open] summary::after{transform:rotate(45deg)}
+  .qa p{margin:0 0 18px; color:var(--dim); font-size:14.5px; line-height:1.6}
+
   /* cta band */
   .cta-band{margin:16px 0 0; border:1px solid var(--border); border-radius:22px; padding:44px; text-align:center;
     background:radial-gradient(120% 160% at 50% 0%, rgba(34,211,238,.1), transparent 55%), var(--surface)}
@@ -253,6 +279,7 @@
       <a class="link" href="#features">Features</a>
       <a class="link" href="#security">Security</a>
       <a class="link" href="#integrate">Integrate</a>
+      <a class="link" href="#faq">FAQ</a>
       <a class="btn ghost" data-repo href="#">GitHub</a>
       <a class="btn primary" href="#get">Get GhostKey</a>
     </div>
@@ -425,6 +452,43 @@
           <span class="prov">+ custom</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- GET STARTED -->
+  <section class="section" id="start">
+    <p class="eyebrow">Get started in 60 seconds</p>
+    <h2>From install to first key, fast.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Install &amp; set a passphrase</h3>
+        <p>Add GhostKey, then create one master passphrase. It encrypts your vault and never leaves your device.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Add your API keys</h3>
+        <p>Open the vault, pick a provider, paste a key. It's masked instantly and sealed with AES-256-GCM.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Approve apps as they ask</h3>
+        <p>When an app needs a key, approve it once, for a session, or always — and revoke anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <p class="eyebrow">FAQ</p>
+    <h2>Questions, answered.</h2>
+    <div class="faq">
+      <details class="qa"><summary>Where are my API keys stored?</summary><p>Only on your device, encrypted, in the browser's extension storage. There are no GhostKey servers, accounts, or telemetry — nothing is uploaded anywhere.</p></details>
+      <details class="qa"><summary>How are the keys protected?</summary><p>Each key is encrypted with AES-256-GCM. The encryption key is derived from your master passphrase using PBKDF2-HMAC-SHA-256 with 600,000 iterations, and it exists only in memory while the vault is unlocked.</p></details>
+      <details class="qa"><summary>What happens if I forget my passphrase?</summary><p>It can't be recovered — that's the point. Your passphrase is never stored or transmitted, so choose something strong you'll remember, and keep an encrypted backup export somewhere safe.</p></details>
+      <details class="qa"><summary>Can any app use my keys?</summary><p>Only apps you explicitly approve, and only for as long as you allow. By default GhostKey proxies the request so the app receives the response but never the raw key. You can revoke any grant instantly.</p></details>
+      <details class="qa"><summary>Which providers are supported?</summary><p>OpenAI, Anthropic, Google Gemini, xAI, OpenRouter, Groq, DeepSeek, Mistral, Qwen, Moonshot Kimi, Ollama, and LM Studio — plus any OpenAI-compatible endpoint you configure.</p></details>
+      <details class="qa"><summary>Does it cost anything?</summary><p>No. GhostKey is free and open source under the MIT license. You only pay your AI providers for the tokens you use — and GhostKey shows you an estimate.</p></details>
     </div>
   </section>
 
