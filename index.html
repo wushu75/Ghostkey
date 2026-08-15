@@ -3,8 +3,54 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GhostKey — Your AI keys. One vault. Zero trust required.</title>
-<meta name="description" content="GhostKey is a local-first, encrypted BYOK vault for AI API keys. Keys are encrypted on your device and never leave the extension — other apps get a short-lived pass or a proxied request." />
+<title>GhostKey — Encrypted local vault for your AI API keys</title>
+<meta name="description" content="GhostKey is a local-first, open-source Chrome extension that encrypts your AI API keys on your device. Other apps get a short-lived session or a proxied request — your OpenAI, Anthropic, Gemini, or Kimi key never leaves the vault." />
+<meta name="keywords" content="AI API key manager, BYOK, encrypted API keys, OpenAI key vault, Anthropic key, Chrome extension, API key security, local-first, AES-256-GCM, proxy API requests, Kimi K3, Moonshot" />
+<meta name="author" content="GhostKey contributors" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0B1120" />
+<link rel="canonical" href="https://ghostkey.app/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="GhostKey" />
+<meta property="og:title" content="GhostKey — Encrypted local vault for your AI API keys" />
+<meta property="og:description" content="Your AI keys. One vault. Zero trust required. Keys are encrypted on your device and never leave the extension — other apps get a short-lived pass or a proxied request." />
+<meta property="og:url" content="https://ghostkey.app/" />
+<meta property="og:image" content="https://ghostkey.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GhostKey — Encrypted local vault for your AI API keys" />
+<meta name="twitter:description" content="Local-first, open-source vault for AI API keys. Encrypted on-device; apps get a short-lived pass or a proxied request, never the raw key." />
+<meta name="twitter:image" content="https://ghostkey.app/og-image.png" />
+
+<!-- Inline SVG favicon (ghost mark) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322D3EE'/%3E%3Cstop offset='1' stop-color='%23A78BFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230B1120'/%3E%3Cpath d='M32 12c-8.8 0-16 7.2-16 16v20c0 1.5 1.7 2.3 2.9 1.4l3.2-2.4c.8-.6 1.9-.5 2.6.1l2.9 2.4c.8.6 1.8.6 2.6 0l2.8-2.4c.8-.6 1.8-.6 2.6 0l2.8 2.4c.8.6 1.9.5 2.7-.1l3.2-2.4c1.2-.9.5-2.4.5-3.4V28c0-8.8-7.2-16-16-16z' fill='url(%23g)'/%3E%3Ccircle cx='26' cy='30' r='2.6' fill='%230B1120'/%3E%3Ccircle cx='38' cy='30' r='2.6' fill='%230B1120'/%3E%3C/svg%3E" />
+
+<!-- Structured data: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GhostKey",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome, Edge, Brave, Arc, Opera",
+  "description": "Local-first, encrypted BYOK vault for AI API keys. Keys are encrypted on-device and never leave the extension; other apps receive a short-lived session token or a proxied request.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "license": "https://opensource.org/licenses/MIT",
+  "featureList": [
+    "AES-256-GCM encryption with 600,000-round PBKDF2 key derivation",
+    "Proxy requests so the raw key never leaves the vault",
+    "Short-lived, revocable session tokens",
+    "On-device audit log and usage/cost tracking",
+    "Monthly spend cap with kill-switch",
+    "Supports OpenAI, Anthropic, Gemini, xAI, OpenRouter, Groq, DeepSeek, Mistral, Moonshot Kimi, Ollama, LM Studio"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -314,8 +360,8 @@
       </div>
       <div class="feat v">
         <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
-        <h3>Eleven providers</h3>
-        <p>OpenAI, Anthropic, Gemini, xAI, OpenRouter, Groq, DeepSeek, Mistral, Ollama, LM Studio — plus any OpenAI-compatible endpoint.</p>
+        <h3>Twelve providers</h3>
+        <p>OpenAI, Anthropic, Gemini, xAI, OpenRouter, Groq, DeepSeek, Mistral, Moonshot Kimi, Ollama, LM Studio — plus any OpenAI-compatible endpoint.</p>
       </div>
     </div>
   </section>
@@ -374,7 +420,7 @@
         <div class="providers">
           <span class="prov">OpenAI</span><span class="prov">Anthropic</span><span class="prov">Gemini</span>
           <span class="prov">xAI</span><span class="prov">OpenRouter</span><span class="prov">Groq</span>
-          <span class="prov">DeepSeek</span><span class="prov">Mistral</span>
+          <span class="prov">DeepSeek</span><span class="prov">Mistral</span><span class="prov">Kimi K3</span>
           <span class="prov local">Ollama</span><span class="prov local">LM Studio</span>
           <span class="prov">+ custom</span>
         </div>
